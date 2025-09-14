@@ -1,0 +1,35 @@
+{
+  "userId": 101,
+  "username": "jagadhes",
+  "password": "secret123",
+  "email": "jagadhes@example.com",
+  "roles": ["admin", "tester", "developer"],
+  "profile": {
+    "firstName": "Jagadhes",
+    "lastName": "V",
+    "address": {
+      "street": "123 Automation Lane",
+      "city": "Chennai",
+      "zip": "600001",
+      "country": "India"
+    },
+    "contacts": [
+      { "type": "mobile", "number": "9876543210" },
+      { "type": "office", "number": "044-1234567" }
+    ]
+  },
+  "projects": [
+    {
+      "projectId": "P001",
+      "projectName": "Automation Framework",
+      "status": "active",
+      "members": ["john", "mike", "sara"]
+    },
+    {
+      "projectId": "P002",
+      "projectName": "API Testing",
+      "status": "completed",
+      "members": ["ravi", "anita"]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-<img width="351" height="241" alt="image" src="https://github.com/user-attachments/assets/7139c3e5-8878-4c21-99cf-55d9f88d19c8" />API Automation Framework – Rest Assured + Cucumber (BDD)
+API Automation Framework – Rest Assured + Cucumber (BDD)
 
 📌 Overview
 This project is an API automation framework built using Rest Assured for HTTP request handling and Cucumber for Behavior-Driven Development (BDD). It enables writing human-readable test scenarios that validate RESTful APIs efficiently.

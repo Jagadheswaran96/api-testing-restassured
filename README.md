@@ -35,7 +35,7 @@ Feature: User API Validation
 
 🛠️ How to Run Tests
 1. Clone the repo
-git clone https://github.com/Jagadheswaran96/API-Testing-With-RestAssured.git
+git clone https://github.com/Jagadheswaran96/api-testing-restassured.git
 
 2. Install dependencies
 mvn clean install

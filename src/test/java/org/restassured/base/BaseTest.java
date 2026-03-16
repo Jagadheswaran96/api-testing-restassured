@@ -7,14 +7,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 
 public class BaseTest {
 	static {
 		try {
 			// Create logs directory if not exists
-			File logDir = new File("logs");
+			File logDir = new File("target/logs");
 			if (!logDir.exists()) {
 				logDir.mkdirs();   // creates folder "logs"
 			}
@@ -33,5 +31,10 @@ public class BaseTest {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void setup() {
+
+        RestAssured.baseURI = "https://reqres.in/api";
+    }
 }
 

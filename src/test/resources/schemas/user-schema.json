@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "required": ["id","email","first_name"]
+    }
+  }
+}

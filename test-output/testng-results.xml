@@ -2,12 +2,12 @@
 <testng-results ignored="1" total="2" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-13T17:11:09 IST" name="Default suite" finished-at="2025-09-13T17:11:15 IST" duration-ms="6328">
+  <suite started-at="2026-01-27T22:31:29 IST" name="Default suite" finished-at="2026-01-27T22:31:35 IST" duration-ms="5523">
     <groups>
     </groups>
-    <test started-at="2025-09-13T17:11:09 IST" name="Default test" finished-at="2025-09-13T17:11:15 IST" duration-ms="6328">
+    <test started-at="2026-01-27T22:31:29 IST" name="Default test" finished-at="2026-01-27T22:31:35 IST" duration-ms="5523">
       <class name="org.restassured.test.ApiTest">
-        <test-method signature="postRequest()[pri:0, instance:org.restassured.test.ApiTest@1d296da]" started-at="2025-09-13T17:11:09 IST" name="postRequest" finished-at="2025-09-13T17:11:15 IST" duration-ms="6201" status="FAIL">
+        <test-method signature="postRequest()[pri:0, instance:org.restassured.test.ApiTest@1d296da]" started-at="2026-01-27T22:31:29 IST" name="postRequest" finished-at="2026-01-27T22:31:35 IST" duration-ms="5381" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[1 expectation failed.

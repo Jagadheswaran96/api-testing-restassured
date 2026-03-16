@@ -1,10 +1,12 @@
-package org.restassured.test;
+package org.restassured.tests;
 
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import io.restassured.http.Headers;
@@ -13,11 +15,12 @@ import io.restassured.http.Header;
 import static org.hamcrest.Matchers.*;
 
 import org.restassured.base.BaseTest;
+import org.restassured.utility.DBUtils;
 import org.restassured.utility.FileUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ApiTest extends BaseTest{
+public class APITest extends BaseTest{
 
 	String token = "caa9cec5c4894b927fda04e3c91d5ba8dcb15ad099270a5b95f48dd917e26465";
 	Headers headers = new Headers(
@@ -82,7 +85,7 @@ public class ApiTest extends BaseTest{
 				.post("public/v2/users") // Use .get(), .post(), .put(), .delete(), etc. as needed")
 				.then()
 				.statusCode(200)  
-				.body("username", equalTo("jagadhes"))     // Verify JSON field
+				.body("username", equalTo("Automation Engineer"))     // Verify JSON field
 				.body("profile.address.city", equalTo("Chennai"))
 				.body("projects.projectName", hasItems("Automation Framework", "API Testing")) // check values exist
 				.body("projects.status", everyItem(notNullValue())) // verify no nulls// Verify nested field

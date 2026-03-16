@@ -15,4 +15,3 @@ public class ReadJson {
         System.out.println("Username: " + data.getUsername());
     }
 }
-

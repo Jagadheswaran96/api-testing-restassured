@@ -5,8 +5,6 @@ import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import io.restassured.http.Headers;
@@ -15,7 +13,6 @@ import io.restassured.http.Header;
 import static org.hamcrest.Matchers.*;
 
 import org.restassured.base.BaseTest;
-import org.restassured.utility.DBUtils;
 import org.restassured.utility.FileUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;

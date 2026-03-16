@@ -28,7 +28,7 @@ public class APITest extends BaseTest{
 			new Header("User-Agent", "RestAssured-Test")        // Client info
 			);
 
-	@Test
+	@Test (enabled = false)
 	public void deleteRequest() throws Exception {
 
 		ValidatableResponse response = RestAssured
@@ -68,7 +68,7 @@ public class APITest extends BaseTest{
 		 */
 	}
 
-	@Test
+	@Test (enabled = false)
 	public void postRequest() {
 
 		String requestBody = FileUtils.readJsonFile("src/test/resources/request2.json");

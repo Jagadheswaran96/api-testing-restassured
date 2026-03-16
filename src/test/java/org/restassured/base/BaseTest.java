@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import io.restassured.RestAssured;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
 
 public class BaseTest {
 	static {
@@ -22,11 +24,11 @@ public class BaseTest {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss");
 			String formattedTime = sdf.format(now);
 			// Build file name with timestamp
-			String fileName = "logs/all_api_log_" + formattedTime + ".txt";
+			String fileName = "target/logs/all_api_log_" + formattedTime + ".txt";
 			//String fileName = "logs/all_api_log_" + System.currentTimeMillis() + ".txt";
 			System.out.println(fileName);
 			PrintStream logFile = new PrintStream(fileName);
-			//RestAssured.filters(new RequestLoggingFilter(logFile), new ResponseLoggingFilter(logFile));
+			RestAssured.filters(new RequestLoggingFilter(logFile), new ResponseLoggingFilter(logFile));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

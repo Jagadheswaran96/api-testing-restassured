@@ -26,7 +26,8 @@ public class DatabaseValidator {
         String dbEmail = rs.getString("email");
 
         Assert.assertEquals(apiEmail, dbEmail);
-
+        
+        stmt.close();
         conn.close();
     }
 

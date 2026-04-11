@@ -25,6 +25,8 @@ public class UserAPITest {
         ResponseValidator.validateStatus(response,200);
 
         ResponseValidator.validateHeaders(response);
+        
+        ResponseValidator.validateField(response, "name", "John");
 
         SchemaValidator.validateSchema(response,"schemas/user-schema.json");
 

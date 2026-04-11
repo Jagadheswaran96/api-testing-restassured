@@ -6,12 +6,12 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import io.restassured.http.Headers;
 import io.restassured.path.json.JsonPath;
 import io.restassured.http.Header;
 import static org.hamcrest.Matchers.*;
 
+import org.assertj.core.api.SoftAssertions;
 import org.restassured.base.BaseTest;
 import org.restassured.utility.FileUtils;
 import org.testng.Assert;
@@ -20,6 +20,7 @@ import org.testng.annotations.Test;
 public class APITest extends BaseTest{
 
 	String token = "caa9cec5c4894b927fda04e3c91d5ba8dcb15ad099270a5b95f48dd917e26465";
+
 	Headers headers = new Headers(
 			new Header("Authorization", "Bearer " + token),     // JWT / OAuth2
 			new Header("Accept", "application/json"),           // Accept JSON response
@@ -31,20 +32,35 @@ public class APITest extends BaseTest{
 	@Test (enabled = false)
 	public void deleteRequest() throws Exception {
 
-		ValidatableResponse response = RestAssured
-				.given()
-				.baseUri("https://httpbin.org/")
-				.headers(headers)
-				.when()
-				.delete("delete") // Use .get(), .post(), .put(), .delete(), etc. as needed")
-				.then()
-				.log().ifValidationFails()
-				.log().ifError()
-				.header("Content-Type", equalTo("application/json"))
-				.assertThat().header("Content-Type", "application/json")
-				.assertThat().time(lessThan(10L), TimeUnit.SECONDS)
-				.time(lessThan(10000L))
-				.statusCode(200);
+		RestAssured
+		.given()
+		.baseUri("https://httpbin.org/")
+		.headers(headers)
+		.when()
+		.delete("delete") // Use .get(), .post(), .put(), .delete(), etc. as needed")
+		.then()
+		.log().ifValidationFails()
+		.log().ifError()
+		.header("Content-Type", equalTo("application/json"))
+		.body("id", instanceOf(Integer.class))
+		.body("users", hasSize(10))
+		.body("users.name", hasItem("name"))
+		.body("name", notNullValue())
+		.body("middleName", nullValue())
+		.time(lessThan(2000L))
+		.statusCode(200);
+
+		SoftAssertions softly = new SoftAssertions();
+
+		List<String> users_2 = List.of("A", "B", "C");
+
+		softly.assertThat(users_2).hasSize(5);          // fails, but collected
+		softly.assertThat(users_2).contains("X");       // fails, but collected
+		softly.assertThat(users_2).contains("A");       // passes
+		softly.assertThat(users_2).doesNotContain("D");
+
+		softly.assertAll(); // reports all failures together
+
 		/*
 		 * ExtractableResponse<Response> extractedResponse = response.extract(); long
 		 * responseTime = extractedResponse.time(); System.out.println("Response Time: "

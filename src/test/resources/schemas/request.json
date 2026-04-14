@@ -1,6 +1,6 @@
 {
   "userId": 101,
-  "username": "jagadhes",
+  "user_name": "jagadhes",
   "password": "secret123",
   "email": "jagadhes@example.com",
   "roles": ["admin", "tester", "developer"],

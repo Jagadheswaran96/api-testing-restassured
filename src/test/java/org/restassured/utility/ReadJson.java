@@ -9,12 +9,12 @@ public class ReadJson {
 	
     public static void main(String[] args) throws IOException {
     	
+    	// Read JSON file into a Java Map
+        File file = new File("src/test/resources/schemas/request.json");
+    	
         ObjectMapper mapper = new ObjectMapper();
         
-        // Read JSON file into a Java Map
-        File file = new File("src/test/resources/schemas/request.json");
-        
-        //When POJO used
+        //Deserialize JSON content from given file into given Java type
         MyData data = mapper.readValue(file, MyData.class);        
         System.out.println("Username: " + data.getUsername());
         System.out.println("JSON: " + data.toString());
@@ -26,5 +26,7 @@ public class ReadJson {
         //Serialization (Java → JSON) - Converts Java objects into JSON strings
         String json = mapper.writeValueAsString(new MyData("Jagadheswaran", "pwd"));
         System.out.println(json);
+        
+        mapper.writeValue(new File("src/test/resources/responses/response.json"), json);
     }
 }

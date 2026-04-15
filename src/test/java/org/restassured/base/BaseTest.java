@@ -2,6 +2,7 @@ package org.restassured.base;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,6 +12,7 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 
 public class BaseTest {
+	
 	static {
 		try {
 			// Create logs directory if not exists
@@ -24,10 +26,10 @@ public class BaseTest {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss");
 			String formattedTime = sdf.format(now);
 			// Build file name with timestamp
-			String fileName = "target/logs/all_api_log_" + formattedTime + ".txt";
+			String fileName = "target/logs/api_tests_log_" + formattedTime + ".txt";
 			//String fileName = "logs/all_api_log_" + System.currentTimeMillis() + ".txt";
 			System.out.println(fileName);
-			PrintStream logFile = new PrintStream(fileName);
+			PrintStream logFile = new PrintStream(new FileOutputStream(fileName, true));
 			RestAssured.filters(new RequestLoggingFilter(logFile), new ResponseLoggingFilter(logFile));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

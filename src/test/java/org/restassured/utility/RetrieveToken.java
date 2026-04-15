@@ -2,7 +2,7 @@ package org.restassured.utility;
 
 import static io.restassured.RestAssured.*;
 
-public class AuthUtil {
+public class RetrieveToken {
 	
 	public static String getToken() {
 

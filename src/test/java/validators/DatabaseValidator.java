@@ -18,8 +18,7 @@ public class DatabaseValidator {
 
         Statement stmt = conn.createStatement();
 
-        ResultSet rs =
-                stmt.executeQuery("SELECT email FROM users WHERE id=" + userId);
+        ResultSet rs = stmt.executeQuery("SELECT email FROM users WHERE id=" + userId);
 
         rs.next();
 

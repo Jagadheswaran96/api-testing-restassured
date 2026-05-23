@@ -1,6 +1,6 @@
 package org.restassured.tests;
 
-import api.UserAPI;
+import api.UserApi;
 import org.restassured.base.BaseTest;
 import io.restassured.response.Response;
 import org.junit.BeforeClass;
@@ -20,7 +20,7 @@ public class UserAPITest {
 
         int userId = 2;
 
-        Response response = UserAPI.getUser(userId);
+        Response response = UserApi.getUser(userId);
 
         ResponseValidator.validateStatus(response,200);
 

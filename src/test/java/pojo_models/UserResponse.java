@@ -1,4 +1,4 @@
-package models;
+package pojo_models;
 
 public class UserResponse {
 

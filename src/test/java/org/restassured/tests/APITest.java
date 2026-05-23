@@ -57,8 +57,9 @@ public class APITest extends BaseTest{
 		softly.assertThat(users_2).hasSize(5);          // fails, but collected
 		softly.assertThat(users_2).contains("X");       // fails, but collected
 		softly.assertThat(users_2).contains("A");       // passes
+		softly.assertThat(users_2).isEqualTo(users_2);
 		softly.assertThat(users_2).doesNotContain("D");
-
+		softly.assertThat(users_2).isInstanceOf(String.class);
 		softly.assertAll(); // reports all failures together
 
 		/*

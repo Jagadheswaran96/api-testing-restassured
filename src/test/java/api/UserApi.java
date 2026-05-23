@@ -4,7 +4,7 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 
 
-public class UserAPI {
+public class UserApi {
 	
 	public static Response getUser(int userId) {
 

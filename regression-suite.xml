@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Regression Suite" verbose="1" parallel="false">
+    <test name="Regression Tests">
+        <classes>
+            <!-- Full coverage across all modules -->
+            <class name="com.company.tests.UserApiTests"/>
+            <class name="com.company.tests.OrderApiTests"/>
+            <class name="com.company.tests.AuthApiTests"/>
+        </classes>
+    </test>
+</suite>
